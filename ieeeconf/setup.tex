@@ -1,0 +1,92 @@
+
+\ifx\mydocclass\undefined
+\def\mydocclass{conference}
+\fi
+
+\ifx\mycolumns\undefined
+\def\mycolumns{onecolumn}
+\fi
+
+\ifx\mysize\undefined
+\def\mysize{10pt}
+\fi
+
+\ifdefined\myinnermargin
+\newcommand{\CLASSINPUTinnersidemargin}{\myinnermargin}
+\fi
+\ifdefined\myoutermargin
+\newcommand{\CLASSINPUToutersidemargin}{\myoutermargin}
+\fi
+\ifdefined\mytopmargin
+\newcommand{\CLASSINPUTtoptextmargin}{\mytopmargin}
+\fi
+\ifdefined\mybottommargin
+\newcommand{\CLASSINPUTbottomtextmargin}{\mybottommargin}
+\fi
+
+\documentclass[\mysize,\mydocclass,\mycolumns]{ieeeconf}
+\IEEEoverridecommandlockouts
+\overrideIEEEmargins
+
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{hyperref}
+%for references
+\usepackage{apalike}
+\usepackage{tabulary}
+\usepackage{booktabs}
+
+\ifx\bibliocommand\undefined
+\else
+%fixes warning/error for natbib redefining bibhang
+\let\bibhang\relax
+\usepackage[
+    backend=biber,
+    natbib=true,
+    style=ieee,
+    url=false,
+    doi=false,
+    isbn=false,
+    safeinputenc=true
+]{biblatex}
+\AtEveryBibitem{\clearfield{issn}}
+\renewcommand{\bibliography}[1]{\addbibresource{#1.bib}}
+\bibliocommand
+\renewcommand*{\bibfont}{\footnotesize}
+\fi
+
+\ifdefined\mypackages
+\input{\mypackages}
+\fi
+
+\renewcommand\[{\begin{equation}}
+\renewcommand\]{\end{equation}}
+
+\renewcommand*\footnoterule{}
+
+\title{\mytitle}
+
+\ifx\myassociation\undefined
+\author{\myauthor}
+\else
+\author{\myauthor \thanks{\myassociation}}
+\fi
+
+\begin{document}
+
+\maketitle
+% If myabstract is defined, use it
+\ifx\myabstract\undefined
+\else
+\begin{abstract}
+\input{\myabstract}
+\end{abstract}
+\fi
+
+\ifx\mykeywords\undefined
+\else
+\begin{IEEEkeywords}
+\mykeywords
+\end{IEEEkeywords}
+\fi

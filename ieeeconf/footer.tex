@@ -1,0 +1,24 @@
+% Bibliography
+
+\ifx\myappendix\undefined
+\else
+
+\section*{APPENDIX}
+\input{\myappendix}
+
+\fi
+
+
+\ifx\myacknowledgments\undefined
+\else
+
+\section*{ACKNOWLEDGMENT}
+\input{\myacknowledgments}
+
+\fi
+
+
+\ifx\bibliocommand\undefined
+\else
+\printbibliography
+\fi
