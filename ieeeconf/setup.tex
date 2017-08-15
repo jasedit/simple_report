@@ -1,10 +1,9 @@
-
 \ifx\mydocclass\undefined
 \def\mydocclass{conference}
 \fi
 
 \ifx\mycolumns\undefined
-\def\mycolumns{onecolumn}
+\def\mycolumns{twocolumn}
 \fi
 
 \ifx\mysize\undefined
@@ -35,6 +34,7 @@
 %for references
 \usepackage{tabulary}
 \usepackage{booktabs}
+\usepackage[utf8]{inputenc}
 
 \ifx\bibliocommand\undefined
 \else
@@ -69,7 +69,8 @@
 \ifx\myassociation\undefined
 \author{\myauthor}
 \else
-\author{\myauthor \thanks{\myassociation}}
+\author{\myauthor%
+\myassociation}
 \fi
 
 \begin{document}
