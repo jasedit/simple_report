@@ -7,13 +7,12 @@ This repository contains a few example templates to use with [scriptorium](https
 Clone this repository into the templates directory of scriptorium:
 
 ```
-cd papers_base/templates/
-git clone https://github.com/jasedit/simple_templates.git
+scriptorium template -i https://github.com/jasedit/simple_templates
 ```
 
 # Usage
 
-In the metadata header of a paper created using the `new_paper.sh` command in papers_base, the last two lines of the metadata should look akin to:
+In the metadata header of a paper created using the `scriptorium new -t report` command, the last two lines of the metadata in `paper.mmd` should look akin to:
 
 ```
 latex input: report/setup.tex
