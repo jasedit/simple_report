@@ -1,0 +1,66 @@
+%Author: Jason Ziglar <jpz@vt.edu>
+\ifx\myfontsize\undefined
+\newcommand{\myfontsize}{10pt}
+\fi
+
+\documentclass[\myfontsize]{article}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{units}
+\usepackage{minted}
+\usepackage{listings}
+\usepackage{upquote}
+\usepackage{fontspec}
+\setmonofont{Hack}
+\ifx\mymargin\undefined
+\else
+\usepackage[margin=\mymargin]{geometry}
+\fi
+
+\ifdefined\mypackages
+\input{\mypackages}
+\fi
+
+\ifx\bibliocommand\undefined
+\else
+\usepackage[
+    backend=biber,
+    natbib=true,
+    sorting=none
+]{biblatex}
+\renewcommand{\bibliography}[1]{\addbibresource{#1.bib}}
+\bibliocommand
+\fi
+
+\renewcommand\[{\begin{equation}}
+\renewcommand\]{\end{equation}}
+
+\title{\mytitle}
+
+\author{\myauthor}
+
+\ifx\mydate
+\else
+\date{\mydate}
+\fi
+
+%\newcommand{\fix}{\marginpar{FIX}}
+%\newcommand{\new}{\marginpar{NEW}}
+
+% forces single quotes to be vertical
+\AtBeginDocument{%
+\def\PYZsq{\textquotesingle}%
+}
+
+\begin{document}
+
+\maketitle
+
+% If myabstract is defined, use it
+\ifx\myabstract\undefined
+\else
+\begin{abstract}
+\input{\abstract}
+\end{abstract}
+\fi
