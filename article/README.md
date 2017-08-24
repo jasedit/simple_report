@@ -4,7 +4,7 @@ This is a basic framework for simple article type documents, built using [script
 
 # Instructions
 
-This template can be installed through scriptorium using the command `scriptorium template -i https://github.com/jasedit/scriptorium_article`
+A paper can be created using this template with the command `scriptorium new -t article`
 
 # Template Variables
 
